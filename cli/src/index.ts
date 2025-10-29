@@ -1,7 +1,8 @@
 import { spawn } from "child_process";
 import open from "open";
 import { Command } from "commander";
-import path from "path";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 
 const program = new Command();
 
@@ -14,15 +15,19 @@ program
   .command("start")
   .description("Start the Decasol Studio locally (dev mode)")
   .action(() => {
-    const root = process.cwd();
-    const server = spawn("bun", ["run", "dev"], { cwd: path.join(root, "..", "server"), stdio: "inherit" });
-    const studio = spawn("bun", ["run", "dev"], { cwd: path.join(root, "..", "studio"), stdio: "inherit" });
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
+    const cliDir = dirname(__dirname); // cli/
+    // const serverDir = join(cliDir, "..", "server");
+    const studioDir = join(cliDir, "..", "studio");
+    // const server = spawn("bun", ["run", "dev"], { cwd: serverDir, stdio: "inherit" });
+    const studio = spawn("bun", ["run", "start"], { cwd: studioDir, stdio: "inherit" });
 
     console.log("🚀 Decasol Studio is starting...");
     open("http://localhost:5173");
 
     process.on("SIGINT", () => {
-      server.kill();
+      // server.kill();
       studio.kill();
       process.exit();
     });

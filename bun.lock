@@ -5,8 +5,11 @@
       "name": "decasol",
     },
     "cli": {
-      "name": "decasol-cli",
+      "name": "decasol",
       "version": "0.1.0",
+      "bin": {
+        "decasol": "./dist/index.js",
+      },
       "dependencies": {
         "commander": "^12.0.0",
         "open": "^10.1.0",
@@ -244,7 +247,7 @@
 
     "debug": ["debug@4.4.3", "", { "dependencies": { "ms": "^2.1.3" } }, "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA=="],
 
-    "decasol-cli": ["decasol-cli@workspace:cli"],
+    "decasol": ["decasol@workspace:cli"],
 
     "decasol-server": ["decasol-server@workspace:server"],
 

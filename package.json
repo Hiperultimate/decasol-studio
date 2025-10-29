@@ -1,14 +1,55 @@
 {
-  "name": "decasol",
-  "private": true,
-  "workspaces": [
-    "cli",
-    "server"
+  "name": "decasol-studio",
+  "version": "1.0.0",
+  "description": "Local Solana Program Testing Studio - A development environment for Solana programs",
+
+  "bin": {
+    "decasol": "cli/dist/index.js"
+  },
+  "files": [
+    "cli/dist",
+    "studio/.next",
+    "studio/app",
+    "studio/package.json",
+    "studio/next.config.js",
+    "studio/postcss.config.cjs",
+    "studio/tailwind.config.cjs",
+    "studio/public",
+    "studio/tsconfig.json"
   ],
   "scripts": {
-    "install": "bun install",
+    "build:all": "cd cli && bun run build && cd ../studio && bun run build",
+    "prepack": "bun run build:all",
+    "prepublishOnly": "bun run build:all",
     "start:cli": "cd cli && bun run dev",
     "start:server": "cd server && bun run dev",
     "start:studio": "cd studio && bun run dev"
+  },
+  "keywords": [
+    "solana",
+    "blockchain",
+    "development",
+    "studio",
+    "testing"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/decasol-studio"
+  },
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@types/react": "19.2.2",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^4",
+    "open": "^10.1.0",
+    "commander": "^12.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
