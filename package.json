@@ -1,0 +1,14 @@
+{
+  "name": "decasol",
+  "private": true,
+  "workspaces": [
+    "cli",
+    "server"
+  ],
+  "scripts": {
+    "install": "bun install",
+    "start:cli": "cd cli && bun run dev",
+    "start:server": "cd server && bun run dev",
+    "start:studio": "cd studio && bun run dev"
+  }
+}

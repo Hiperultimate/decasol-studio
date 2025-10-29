@@ -1,0 +1,17 @@
+{
+  "name": "decasol-server",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.3",
+    "fastify": "^4.28.0",
+    "@fastify/websocket": "^10.0.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.1",
+    "typescript": "^5.3.3"
+  }
+}
